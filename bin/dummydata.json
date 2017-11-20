@@ -1,21 +1,4 @@
 [
-  /*
-  // https://www.json-generator.com
-  [
-    '{{repeat(100)}}',
-    {
-      email: '{{email()}}',
-      name: '{{firstName()}} {{surname()}}',
-      role: '{{random("user", "artist")}}',
-      location: {
-          lat: '{{floating(23, 48)}}',
-          lng: '{{floating(-123, -65)}}'
-        },
-      createdAt: '{{date(new Date("2015-1-1"))}}',
-      lastSeenAt: '{{random(date(new Date("2016-1-1")), date(new Date("2017-11-1")), date(new Date("2017-11-1")), date(new Date()))}}'
-    }
-  ]
-  */
   {
     "email": "gilesdixon@kneedles.com",
     "name": "Rae Chambers",
