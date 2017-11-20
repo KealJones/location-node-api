@@ -20,6 +20,7 @@ Expected Example Response:
   */
   app.get("/getMatches", (req, res) => {
     let Account = app.models.Account;
+    let role = "artist";
     if (!req.query.latitude)
       return res.status(400).send({
         status: 400,
@@ -30,12 +31,11 @@ Expected Example Response:
         status: 400,
         message: "parameter `longitude` is required."
       });
+    if (req.query.role == "user" || req.query.role == "artist") {
+      role = req.query.role;
+    }
 
-    return Account.getByLocation(
-      req.query.latitude,
-      req.query.longitude,
-      "artist"
-    )
+    return Account.getByLocation(req.query.latitude, req.query.longitude, role)
       .then(data => res.json(data))
       .catch(err =>
         res.status(500).json({

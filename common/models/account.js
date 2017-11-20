@@ -54,6 +54,10 @@ module.exports = function(Account) {
       { arg: "longitude", type: "number", required: true },
       { arg: "role", type: "string" }
     ],
-    returns: { type: "array" }
+    returns: { type: "array", root: true },
+    http: {
+      path: "/getMatches",
+      verb: "get"
+    }
   });
 };

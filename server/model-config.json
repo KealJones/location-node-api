@@ -14,7 +14,8 @@
     ]
   },
   "User": {
-    "dataSource": "accountDS"
+    "dataSource": "accountDS",
+    "public": false
   },
   "AccessToken": {
     "dataSource": "accountDS",
