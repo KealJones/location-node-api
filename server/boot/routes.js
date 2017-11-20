@@ -6,27 +6,27 @@ module.exports = function(app) {
       lat: parseFloat(req.query.lat),
       lng: parseFloat(req.query.lng)
     };
-    console.log(there);
-    return Account.find(
-      {
-        where: {
-          location: {
-            near: there,
-            maxDistance: 2000
+    return res.json(
+      Account.find(
+        {
+          where: {
+            location: {
+              near: there,
+              maxDistance: 2000
+            }
           }
+        },
+        function(err, accounts) {
+          for (let index = 0; index < accounts.length; index++) {
+            accounts[index].distance = accounts[
+              index
+            ].location.distanceTo(there, {
+              type: "miles"
+            });
+          }
+          return accounts;
         }
-      },
-      function(err, accounts) {
-        for (let index = 0; index < accounts.length; index++) {
-          var here = {
-            lat: accounts[index].location.lat,
-            lng: accounts[index].location.lng
-          };
-          console.log(here);
-          accounts[index].distance = there.distanceTo(here, { type: "miles" });
-        }
-        return accounts;
-      }
+      ) || []
     );
   });
 };
