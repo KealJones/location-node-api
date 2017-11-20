@@ -6,6 +6,7 @@
     "lint": "jshint .",
     "pretest": "npm run lint",
     "start": "node .",
+    "prestart": "node bin/automigrate",
     "test": "./node_modules/.bin/mocha --require test/globals.js"
   },
   "dependencies": {
