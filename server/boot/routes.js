@@ -6,8 +6,7 @@ module.exports = function(app) {
       lat: parseFloat(req.query.lat),
       lng: parseFloat(req.query.lng)
     };
-    loopback = module.exports = loopback();
-    there = new loopback.GeoPoint(there);
+    there = new app.GeoPoint(there);
     return Account.find(
       {
         where: {
