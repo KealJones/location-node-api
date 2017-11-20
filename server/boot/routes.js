@@ -1,34 +1,30 @@
-var loopback = require("loopback");
 module.exports = function(app) {
   app.get("/getMatches", function(req, res) {
     var Account = app.models.Account;
-    var there = new loopback.GeoPoint({
+    var loopback = require("loopback");
+    var there = {
       lat: parseFloat(req.query.lat),
       lng: parseFloat(req.query.lng)
-    });
+    };
+    loopback = module.exports = loopback();
+    there = new loopback.GeoPoint(there);
     return Account.find(
       {
         where: {
           location: {
-            near: {
-              lat: parseFloat(req.query.lat),
-              lng: parseFloat(req.query.lng)
-            },
+            near: there,
             maxDistance: 2000
           }
         }
       },
       function(err, accounts) {
-        for (let index = 0; index < accounts.length; index++) {
-          var here = new loopback.GeoPoint({
-            lat: accounts[index].location.lat,
-            lng: accounts[index].location.lng
-          });
+        /*for (let index = 0; index < accounts.length; index++) {
+          var here = accounts[index].location;
 
-          accounts[index].distance = there.distanceTo(here, {
+          accounts[index].distance = here.distanceTo(there, {
             type: "miles"
           });
-        }
+        }*/
         return accounts;
       }
     );
