@@ -11,15 +11,12 @@
   "newcap": true,
   "nonew": true,
   "noarg": true,
-  "quotmark": "single",
+  "quotmark": "double",
   "regexp": true,
   "undef": true,
   "unused": false,
   "trailing": true,
   "sub": true,
   "maxlen": 80,
-  "globals": [
-    "describe",
-    "it"
-  ]
+  "globals": ["describe", "it"]
 }

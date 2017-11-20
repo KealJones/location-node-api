@@ -14,22 +14,22 @@
     ]
   },
   "User": {
-    "dataSource": "db"
+    "dataSource": "accountDS"
   },
   "AccessToken": {
-    "dataSource": "db",
+    "dataSource": "accountDS",
     "public": false
   },
   "ACL": {
-    "dataSource": "db",
+    "dataSource": "accountDS",
     "public": false
   },
   "RoleMapping": {
-    "dataSource": "db",
+    "dataSource": "accountDS",
     "public": false
   },
   "Role": {
-    "dataSource": "db",
+    "dataSource": "accountDS",
     "public": false
   },
   "Account": {

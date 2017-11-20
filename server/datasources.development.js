@@ -1,8 +1,4 @@
 module.exports = {
-  db: {
-    name: "db",
-    connector: "memory"
-  },
   accountDS: {
     name: "accountDS",
     connector: "postgresql",
