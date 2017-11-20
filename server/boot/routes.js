@@ -1,6 +1,5 @@
 var loopback = require("loopback");
 module.exports = function(app) {
-  // Install a "/ping" route that returns "pong"
   app.get("/getMatches", function(req, res) {
     var Account = app.models.Account;
     var there = new loopback.GeoPoint({
@@ -21,7 +20,7 @@ module.exports = function(app) {
       },
       function(err, accounts) {
         for (let index = 0; index < accounts.length; index++) {
-          var there = new loopback.GeoPoint({
+          var here = new loopback.GeoPoint({
             lat: accounts[index].location.lat,
             lng: accounts[index].location.lng
           });
