@@ -3,7 +3,7 @@
     "loopback#errorHandler": {
       "params": {
         "includeStack": true,
-        "debug": true,
+        "debug": false,
         "log": true
       }
     }
