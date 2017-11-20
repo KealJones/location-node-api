@@ -1,0 +1,12 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "accountDS": {
+    "name": "accountDS",
+    "connector": "postgresql",
+    "url":
+      "postgres://jcqfduoyynutdw:57c96731099394ce2c91337c05c44da93d449402537c8a6b0621d34b352b8d6f@ec2-54-163-254-143.compute-1.amazonaws.com:5432/d9cbbi7p0a28fc"
+  }
+}
