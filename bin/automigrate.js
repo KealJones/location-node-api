@@ -4,33 +4,24 @@ var app = require(path.resolve(__dirname, "../server/server"));
 var ds = app.datasources.accountDS;
 ds.automigrate("Account", function(err) {
   if (err) throw err;
-  function getRandomInRange(from, to, fixed) {
-    return (Math.random() * (to - from) + from).toFixed(fixed) * 1;
-    // .toFixed() returns string, so ' * 1' is a trick to convert to number
-  }
-  var accounts = [
+  /*
+  // https://www.json-generator.com
+  [
+    '{{repeat(100)}}',
     {
-      name: "John Doe",
+      email: '{{email()}}',
+      name: '{{firstName()}} {{surname()}}',
+      role: '{{random("user", "artist")}}',
       location: {
-        lat: getRandomInRange(-90, 90, 3),
-        lng: getRandomInRange(-180, 180, 3)
-      },
-      email: "john.doe@ibm.com",
-      createdAt: new Date(),
-      lastSeenAt: new Date()
-    },
-    {
-      name: "Jane Doe",
-      role: "artist",
-      location: {
-        lat: getRandomInRange(-90, 90, 3),
-        lng: getRandomInRange(-180, 180, 3)
-      },
-      email: "jane.doe@ibm.com",
-      createdAt: new Date(),
-      lastModifiedAt: new Date()
+          lat: '{{floating(23, 48)}}',
+          lng: '{{floating(-123, -65)}}'
+        },
+      createdAt: '{{date(new Date("2015-1-1"))}}',
+      lastSeenAt: '{{random(date(new Date("2016-1-1")), date(new Date("2017-11-1")), date(new Date("2017-11-1")), date(new Date()))}}'
     }
-  ];
+  ]
+  */
+  var accounts = require("./dummydata.json");
   var count = accounts.length;
   accounts.forEach(function(account) {
     app.models.Account.create(account, function(err, model) {
