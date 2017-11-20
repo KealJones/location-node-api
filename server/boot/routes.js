@@ -37,6 +37,11 @@ Expected Example Response:
       "artist"
     )
       .then(data => res.json(data))
-      .catch(err => console.error(err));
+      .catch(err =>
+        res.status(500).json({
+          status: 500,
+          message: "Sorry, Something went terribly wrong."
+        })
+      );
   });
 };
