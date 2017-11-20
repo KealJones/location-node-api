@@ -11,7 +11,10 @@ ds.automigrate("Account", function(err) {
   var accounts = [
     {
       name: "John Doe",
-      location: [getRandomInRange(-90, 90, 3), getRandomInRange(-180, 180, 3)],
+      location: {
+        lat: getRandomInRange(-90, 90, 3),
+        lng: getRandomInRange(-180, 180, 3)
+      },
       email: "john.doe@ibm.com",
       createdAt: new Date(),
       lastSeenAt: new Date()
@@ -19,7 +22,10 @@ ds.automigrate("Account", function(err) {
     {
       name: "Jane Doe",
       role: "artist",
-      location: [getRandomInRange(-90, 90, 3), getRandomInRange(-180, 180, 3)],
+      location: {
+        lat: getRandomInRange(-90, 90, 3),
+        lng: getRandomInRange(-180, 180, 3)
+      },
       email: "jane.doe@ibm.com",
       createdAt: new Date(),
       lastModifiedAt: new Date()

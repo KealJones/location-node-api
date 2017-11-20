@@ -1,6 +1,6 @@
 {
-  "name": "loopback-example-database",
-  "version": "2.0.0",
+  "name": "location-node-api",
+  "version": "1.0.0",
   "main": "server/server.js",
   "scripts": {
     "lint": "jshint .",
@@ -26,8 +26,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/strongloop/loopback-example-database"
+    "url": "https://github.com/KealJones"
   },
-  "description": "loopback-example-database",
+  "description": "location-node-api",
   "license": "MIT"
 }
