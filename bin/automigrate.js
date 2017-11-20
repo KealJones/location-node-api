@@ -4,23 +4,6 @@ var app = require(path.resolve(__dirname, "../server/server"));
 var ds = app.datasources.accountDS;
 ds.automigrate("Account", function(err) {
   if (err) throw err;
-  /*
-  // https://www.json-generator.com
-  [
-    '{{repeat(100)}}',
-    {
-      email: '{{email()}}',
-      name: '{{firstName()}} {{surname()}}',
-      role: '{{random("user", "artist")}}',
-      location: {
-          lat: '{{floating(23, 48)}}',
-          lng: '{{floating(-123, -65)}}'
-        },
-      createdAt: '{{date(new Date("2015-1-1"))}}',
-      lastSeenAt: '{{random(date(new Date("2016-1-1")), date(new Date("2017-11-1")), date(new Date("2017-11-1")), date(new Date()))}}'
-    }
-  ]
-  */
   var accounts = require("./dummydata.json");
   var count = accounts.length;
   accounts.forEach(function(account) {
