@@ -1,7 +1,19 @@
 var path = require("path");
-
 var app = require(path.resolve(__dirname, "../server/server"));
 var ds = app.datasources.accountDS;
+var lbTables = ["User", "AccessToken", "ACL", "RoleMapping", "Role"];
+
+// Migration for Loopback Default Tables
+ds.automigrate(lbTables, function(er) {
+  if (er) throw er;
+  console.log(
+    "Loopback tables [" + lbTables + "] created in ",
+    ds.adapter.name
+  );
+  ds.disconnect();
+});
+
+// Migration and Population of Account Model with dummy data
 ds.automigrate("Account", function(err) {
   if (err) throw err;
   /*
@@ -34,15 +46,4 @@ ds.automigrate("Account", function(err) {
       if (count === 0) ds.disconnect();
     });
   });
-});
-
-var server = app;
-var lbTables = ["User", "AccessToken", "ACL", "RoleMapping", "Role"];
-ds.automigrate(lbTables, function(er) {
-  if (er) throw er;
-  console.log(
-    "Loopback tables [" + lbTables + "] created in ",
-    ds.adapter.name
-  );
-  ds.disconnect();
 });

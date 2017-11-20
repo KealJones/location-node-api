@@ -2,6 +2,12 @@
   "name": "location-node-api",
   "version": "1.0.0",
   "main": "server/server.js",
+  "description": "location-node-api",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KealJones/location-node-api.git"
+  },
   "scripts": {
     "lint": "jshint .",
     "pretest": "npm run lint",
@@ -24,11 +30,5 @@
     "chai": "^3.4.0",
     "jshint": "^2.5.6",
     "mocha": "^2.3.3"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/KealJones/location-node-api"
-  },
-  "description": "location-node-api",
-  "license": "MIT"
+  }
 }
